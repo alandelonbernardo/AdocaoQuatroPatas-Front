@@ -19,9 +19,7 @@
           <td class="text-left">{{ item.id }}</td>
           <td class="text-left"> {{ item.name }}</td>
           <td class="text-left"> {{ item.email }}</td>
-          <td class="text-left">
-            {{ new Date(item.created_at).toLocaleString('pt-BR') }}
-          </td>
+          <td class="text-left">{{ item.created_at }}</td>
           <td class="text-left">
             <div class="row items-start">
               <q-btn color="blue-6" icon="edit" :to="'/usuarios/editar' + item.id" />
