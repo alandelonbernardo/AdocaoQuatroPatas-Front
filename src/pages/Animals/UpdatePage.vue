@@ -28,7 +28,7 @@
           <q-input label="Descrição" type="text" v-model="form.description" filled />
         </div>
         <div class="col-md-12 col-xs-12 q-pa-xs">
-          <q-btn @click="saveData()" color="green-5" label="SALVAR" class="full-width" />
+          <q-btn @click="updateData()" color="green-5" label="SALVAR" class="full-width" />
         </div>
       </div>
     </div>
@@ -69,7 +69,7 @@ export default {
     this.form.description = response.data.description
   },
   methods: {
-    async updateData () {
+    async updateData() {
       const response = await AnimalService.update(this.id, this.form)
       if(response.status == '200'){
         this.$router.push('/animais')

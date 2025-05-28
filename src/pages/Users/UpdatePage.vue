@@ -1,19 +1,34 @@
 <template>
-  <q-page >
+  <q-page>
     <div class="q-pa-md">
-      <h6 class="q-ma-xs">Atualizar Usuário #{{ id }}</h6>
+      <h6 class="q-ma-xs">Cadastrar Animal</h6>
       <div class="row full-width">
-        <div class="col-md-12 col-xs-6 q-pa-xs">
+        <div class="col-md-6 col-xs-6 q-pa-xs">
           <q-input label="Nome" type="text" v-model="form.name" filled />
         </div>
         <div class="col-md-6 col-xs-6 q-pa-xs">
-          <q-input label="E-mail" type="text" v-model="form.email" filled />
+          <q-input label="Espécie" type="text" v-model="form.specie" filled />
         </div>
         <div class="col-md-6 col-xs-6 q-pa-xs">
-          <q-input label="Senha" type="text" v-model="form.password"  filled />
+          <q-input label="Raça" type="text" v-model="form.breed" filled />
+        </div>
+        <div class="col-md-6 col-xs-6 q-pa-xs">
+          <q-input label="Tamanho" type="text" v-model="form.size" filled />
+        </div>
+        <div class="col-md-6 col-xs-6 q-pa-xs">
+          <q-input label="Idade" type="text" v-model="form.age" filled />
+        </div>
+        <div class="col-md-6 col-xs-6 q-pa-xs">
+          <q-input label="Foto" type="text" v-model="form.photo" filled />
+        </div>
+        <div class="col-md-6 col-xs-6 q-pa-xs">
+          <q-input label="Status" type="text" v-model="form.status" filled />
+        </div>
+        <div class="col-md-6 col-xs-6 q-pa-xs">
+          <q-input label="Descrição" type="text" v-model="form.description" filled />
         </div>
         <div class="col-md-12 col-xs-12 q-pa-xs">
-          <q-btn @click="updateData()" color="green-6" label="ATUALIZAR" class="full-width" />
+          <q-btn @click="updateData()" color="green-5" label="SALVAR" class="full-width" />
         </div>
       </div>
     </div>
@@ -44,7 +59,7 @@ export default {
     this.form.password = response.data.password
   },
   methods: {
-    async updateData () {
+    async updateData() {
       const response = await UserService.update(this.id, this.form)
       if(response.status == '200'){
         this.$router.push('/usuarios')
